@@ -3,6 +3,13 @@ target = 10
 
 printtext = 0
 #indicates whether or not the system prints text
+#automatically set to 0 when only one solution is expected
+
+onesolution = 0
+#0 = multiple solutions, 1 = only the first solution
+
+if onesolution = 1:
+    printtext = 0
 
 
 class Solution:
@@ -23,6 +30,10 @@ class Solution:
           if self.nums[x] + self.nums[y] == target:
 
             print([x, y])
+            
+            if onesolution == 1:
+                return([x,y])
+            
             if printtext == 1:
               print(self.nums[x], "+", self.nums[y], "=", self.target)
               self.total += 1
